@@ -1,0 +1,12 @@
+
+
+
+  Gas Comparison
+    ✔ Unoptimized setValue
+    ✔ Optimized setValue
+    ✔ Unoptimized incrementCounter
+    ✔ Optimized incrementCounter
+
+
+  4 passing (907ms)
+

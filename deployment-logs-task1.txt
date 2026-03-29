@@ -1,0 +1,28 @@
+
+
+=== Factory Pattern Deployment ===
+
+Factory deployed to: 0x5FbDB2315678afecb367f032d93F642f64180aa3
+
+--- Testing CREATE Deployment ---
+CREATE deployed child at: 0xa16E02E87b7454126E5E10d957A927A7F5B5d2be
+Gas used for CREATE: 301134
+
+--- Testing CREATE2 Deployment ---
+CREATE2 deployed child at: 0xF7Ca41a33279014f00A9c1aB7B52dE45D9638671
+Gas used for CREATE2: 301514
+
+--- Summary ---
+Total contracts deployed: 2
+All contract addresses: [
+  '0xa16E02E87b7454126E5E10d957A927A7F5B5d2be',
+  '0xF7Ca41a33279014f00A9c1aB7B52dE45D9638671'
+]
+
+=== Gas Comparison ===
+| Method  | Gas Used |
+|---------|----------|
+| CREATE  | 301134 |
+| CREATE2 | 301514 |
+
+Difference: 380 gas (CREATE2 more expensive)

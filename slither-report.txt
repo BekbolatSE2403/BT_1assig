@@ -1,0 +1,225 @@
+=== SLITHER ANALYSIS REPORT ===
+Date: Sun Mar 29 21:15:04 +05 2026
+
+=== Analyzing: contracts/AssemblyContract.sol ===
+'solc --version' running
+'solc contracts/AssemblyContract.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/Users/macbook/Desktop/bt_assig1/contracts' running
+INFO:Printers:
+Compiled with solc
+Total number of contracts in source files: 1
+Source lines of code (SLOC) in source files: 101
+Number of  assembly lines: 0
+Number of optimization issues: 1
+Number of informational issues: 10
+Number of low issues: 0
+Number of medium issues: 0
+Number of high issues: 0
+
+
++------------------+-------------+------+------------+--------------+----------+
+| Name             | # functions | ERCS | ERC20 info | Complex code | Features |
++------------------+-------------+------+------------+--------------+----------+
+| AssemblyContract | 13          |      |            | No           | Assembly |
++------------------+-------------+------+------------+--------------+----------+
+INFO:Slither:contracts/AssemblyContract.sol analyzed (1 contracts)
+
+=== Analyzing: contracts/Attacker.sol ===
+'solc --version' running
+'solc contracts/Attacker.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/Users/macbook/Desktop/bt_assig1/contracts' running
+INFO:Printers:
+Compiled with solc
+Total number of contracts in source files: 2
+Source lines of code (SLOC) in source files: 57
+Number of  assembly lines: 0
+Number of optimization issues: 3
+Number of informational issues: 2
+Number of low issues: 3
+Number of medium issues: 0
+Number of high issues: 1
+
++-----------------+-------------+------+------------+--------------+-------------+
+| Name            | # functions | ERCS | ERC20 info | Complex code | Features    |
++-----------------+-------------+------+------------+--------------+-------------+
+| Attacker        | 5           |      |            | No           | Receive ETH |
+|                 |             |      |            |              | Send ETH    |
+| VulnerableVault | 4           |      |            | No           | Receive ETH |
+|                 |             |      |            |              | Send ETH    |
++-----------------+-------------+------+------------+--------------+-------------+
+INFO:Slither:contracts/Attacker.sol analyzed (2 contracts)
+
+=== Analyzing: contracts/FixedAccess.sol ===
+'solc --version' running
+'solc contracts/FixedAccess.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/Users/macbook/Desktop/bt_assig1/contracts' running
+Compilation warnings/errors on contracts/FixedAccess.sol:
+Error: Source "@openzeppelin/contracts/access/Ownable.sol" not found: File not found. Searched the following locations: "".
+ --> contracts/FixedAccess.sol:4:1:
+  |
+4 | import "@openzeppelin/contracts/access/Ownable.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Traceback (most recent call last):
+  File "/Users/macbook/.local/pipx/venvs/slither-analyzer/lib/python3.14/site-packages/crytic_compile/platform/solc.py", line 581, in _run_solc
+    ret: Dict = json.loads(stdout)
+                ~~~~~~~~~~^^^^^^^^
+  File "/usr/local/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/local/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/macbook/.local/bin/slither", line 6, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/Users/macbook/.local/pipx/venvs/slither-analyzer/lib/python3.14/site-packages/slither/__main__.py", line 760, in main
+    main_impl(all_detector_classes=detectors, all_printer_classes=printers)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/.local/pipx/venvs/slither-analyzer/lib/python3.14/site-packages/slither/__main__.py", line 865, in main_impl
+    ) = process_all(filename, args, detector_classes, printer_classes)
+        ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/.local/pipx/venvs/slither-analyzer/lib/python3.14/site-packages/slither/__main__.py", line 95, in process_all
+    compilations = compile_all(target, **vars(args))
+  File "/Users/macbook/.local/pipx/venvs/slither-analyzer/lib/python3.14/site-packages/crytic_compile/crytic_compile.py", line 722, in compile_all
+    compilations.append(CryticCompile(target, **kwargs))
+                        ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/.local/pipx/venvs/slither-analyzer/lib/python3.14/site-packages/crytic_compile/crytic_compile.py", line 211, in __init__
+    self._compile(**kwargs)
+    ~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/macbook/.local/pipx/venvs/slither-analyzer/lib/python3.14/site-packages/crytic_compile/crytic_compile.py", line 633, in _compile
+    self._platform.compile(self, **kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Users/macbook/.local/pipx/venvs/slither-analyzer/lib/python3.14/site-packages/crytic_compile/platform/solc.py", line 150, in compile
+    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
+  File "/Users/macbook/.local/pipx/venvs/slither-analyzer/lib/python3.14/site-packages/crytic_compile/platform/solc.py", line 279, in _get_targets_json
+    return _run_solc(
+        compilation_unit,
+    ...<6 lines>...
+        force_legacy_json=force_legacy_json,
+    )
+  File "/Users/macbook/.local/pipx/venvs/slither-analyzer/lib/python3.14/site-packages/crytic_compile/platform/solc.py", line 585, in _run_solc
+    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation Error: Source "@openzeppelin/contracts/access/Ownable.sol" not found: File not found. Searched the following locations: "".
+ --> contracts/FixedAccess.sol:4:1:
+  |
+4 | import "@openzeppelin/contracts/access/Ownable.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+=== Analyzing: contracts/FixedVault.sol ===
+'solc --version' running
+'solc contracts/FixedVault.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/Users/macbook/Desktop/bt_assig1/contracts' running
+Compilation warnings/errors on contracts/FixedVault.sol:
+Error: Source "@openzeppelin/contracts/security/ReentrancyGuard.sol" not found: File not found. Searched the following locations: "".
+ --> contracts/FixedVault.sol:4:1:
+  |
+4 | import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Traceback (most recent call last):
+  File "/Users/macbook/.local/pipx/venvs/slither-analyzer/lib/python3.14/site-packages/crytic_compile/platform/solc.py", line 581, in _run_solc
+    ret: Dict = json.loads(stdout)
+                ~~~~~~~~~~^^^^^^^^
+  File "/usr/local/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/local/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/macbook/.local/bin/slither", line 6, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/Users/macbook/.local/pipx/venvs/slither-analyzer/lib/python3.14/site-packages/slither/__main__.py", line 760, in main
+    main_impl(all_detector_classes=detectors, all_printer_classes=printers)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/.local/pipx/venvs/slither-analyzer/lib/python3.14/site-packages/slither/__main__.py", line 865, in main_impl
+    ) = process_all(filename, args, detector_classes, printer_classes)
+        ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/.local/pipx/venvs/slither-analyzer/lib/python3.14/site-packages/slither/__main__.py", line 95, in process_all
+    compilations = compile_all(target, **vars(args))
+  File "/Users/macbook/.local/pipx/venvs/slither-analyzer/lib/python3.14/site-packages/crytic_compile/crytic_compile.py", line 722, in compile_all
+    compilations.append(CryticCompile(target, **kwargs))
+                        ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/.local/pipx/venvs/slither-analyzer/lib/python3.14/site-packages/crytic_compile/crytic_compile.py", line 211, in __init__
+    self._compile(**kwargs)
+    ~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/macbook/.local/pipx/venvs/slither-analyzer/lib/python3.14/site-packages/crytic_compile/crytic_compile.py", line 633, in _compile
+    self._platform.compile(self, **kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Users/macbook/.local/pipx/venvs/slither-analyzer/lib/python3.14/site-packages/crytic_compile/platform/solc.py", line 150, in compile
+    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
+  File "/Users/macbook/.local/pipx/venvs/slither-analyzer/lib/python3.14/site-packages/crytic_compile/platform/solc.py", line 279, in _get_targets_json
+    return _run_solc(
+        compilation_unit,
+    ...<6 lines>...
+        force_legacy_json=force_legacy_json,
+    )
+  File "/Users/macbook/.local/pipx/venvs/slither-analyzer/lib/python3.14/site-packages/crytic_compile/platform/solc.py", line 585, in _run_solc
+    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation Error: Source "@openzeppelin/contracts/security/ReentrancyGuard.sol" not found: File not found. Searched the following locations: "".
+ --> contracts/FixedVault.sol:4:1:
+  |
+4 | import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+=== Analyzing: contracts/VulnerableAcces.sol ===
+'solc --version' running
+'solc contracts/VulnerableAcces.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/Users/macbook/Desktop/bt_assig1/contracts' running
+INFO:Printers:
+Compiled with solc
+Total number of contracts in source files: 1
+Source lines of code (SLOC) in source files: 31
+Number of  assembly lines: 0
+Number of optimization issues: 0
+Number of informational issues: 2
+Number of low issues: 1
+Number of medium issues: 0
+Number of high issues: 1
+
++------------------+-------------+------+------------+--------------+-------------+
+| Name             | # functions | ERCS | ERC20 info | Complex code | Features    |
++------------------+-------------+------+------------+--------------+-------------+
+| VulnerableAccess | 6           |      |            | No           | Receive ETH |
+|                  |             |      |            |              | Send ETH    |
++------------------+-------------+------+------------+--------------+-------------+
+INFO:Slither:contracts/VulnerableAcces.sol analyzed (1 contracts)
+
+=== Analyzing: contracts/VulnerableVault.sol ===
+'solc --version' running
+'solc contracts/VulnerableVault.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/Users/macbook/Desktop/bt_assig1/contracts' running
+INFO:Printers:
+Compiled with solc
+Total number of contracts in source files: 1
+Source lines of code (SLOC) in source files: 25
+Number of  assembly lines: 0
+Number of optimization issues: 1
+Number of informational issues: 2
+Number of low issues: 1
+Number of medium issues: 0
+Number of high issues: 1
+
++-----------------+-------------+------+------------+--------------+-------------+
+| Name            | # functions | ERCS | ERC20 info | Complex code | Features    |
++-----------------+-------------+------+------------+--------------+-------------+
+| VulnerableVault | 4           |      |            | No           | Receive ETH |
+|                 |             |      |            |              | Send ETH    |
++-----------------+-------------+------+------------+--------------+-------------+
+INFO:Slither:contracts/VulnerableVault.sol analyzed (1 contracts)
+
